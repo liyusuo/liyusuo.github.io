@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在16年年底的时候，同事聊起脚手架。由于公司业务的多样性,前端的灵活性,让我们不得不思考更通用的脚手架。而不是伴随着前端技术的发展，不断的把时间花在配置上。于是chef-cli诞生了。 18年年初，把过往一年的东西整理和总结下，重新增强了原有的脚手架project-next-cli, 不单单满足我们团队的需求，也可以满足其他人的需求。 开始">
+<meta name="description" content="Vue 主要思想之一就是组件式开发。因此，在实际的项目开发中，肯定会以组件的开发模式进行。形如页面和页面之间需要通信一样，Vue 组件和组件之间肯定也需要互通有无、共享状态。接下来，我们就悉数给大家展示所有 Vue 组件之间的通信方式。 1、props 和 $emit用过 Vue 技术栈开发项目过的开发者对这样一个组合肯定不会陌生，这种组件通信的方式是我们运用的非常多的一种。props 以单向数据">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue源码初识">
+<meta property="og:title" content="vue组件的七种通信方式">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/vue源码初识/index.html">
 <meta property="og:site_name" content="李雨锁">
-<meta property="og:description" content="在16年年底的时候，同事聊起脚手架。由于公司业务的多样性,前端的灵活性,让我们不得不思考更通用的脚手架。而不是伴随着前端技术的发展，不断的把时间花在配置上。于是chef-cli诞生了。 18年年初，把过往一年的东西整理和总结下，重新增强了原有的脚手架project-next-cli, 不单单满足我们团队的需求，也可以满足其他人的需求。 开始">
+<meta property="og:description" content="Vue 主要思想之一就是组件式开发。因此，在实际的项目开发中，肯定会以组件的开发模式进行。形如页面和页面之间需要通信一样，Vue 组件和组件之间肯定也需要互通有无、共享状态。接下来，我们就悉数给大家展示所有 Vue 组件之间的通信方式。 1、props 和 $emit用过 Vue 技术栈开发项目过的开发者对这样一个组合肯定不会陌生，这种组件通信的方式是我们运用的非常多的一种。props 以单向数据">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T03:10:14.421Z">
+<meta property="og:updated_time" content="2019-04-02T05:50:07.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue源码初识">
-<meta name="twitter:description" content="在16年年底的时候，同事聊起脚手架。由于公司业务的多样性,前端的灵活性,让我们不得不思考更通用的脚手架。而不是伴随着前端技术的发展，不断的把时间花在配置上。于是chef-cli诞生了。 18年年初，把过往一年的东西整理和总结下，重新增强了原有的脚手架project-next-cli, 不单单满足我们团队的需求，也可以满足其他人的需求。 开始">
+<meta name="twitter:title" content="vue组件的七种通信方式">
+<meta name="twitter:description" content="Vue 主要思想之一就是组件式开发。因此，在实际的项目开发中，肯定会以组件的开发模式进行。形如页面和页面之间需要通信一样，Vue 组件和组件之间肯定也需要互通有无、共享状态。接下来，我们就悉数给大家展示所有 Vue 组件之间的通信方式。 1、props 和 $emit用过 Vue 技术栈开发项目过的开发者对这样一个组合肯定不会陌生，这种组件通信的方式是我们运用的非常多的一种。props 以单向数据">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>vue源码初识 | 李雨锁</title>
+  <title>vue组件的七种通信方式 | 李雨锁</title>
   
 
 
@@ -268,7 +268,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李雨锁">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/zms.png">
+      <meta itemprop="image" content="/images/liyusuo.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue源码初识</h1>
+          <h1 class="post-title" itemprop="name headline">vue组件的七种通信方式</h1>
         
 
         <div class="post-meta">
@@ -330,8 +330,10 @@
       
 
       
-        <p>在16年年底的时候，同事聊起脚手架。由于公司业务的多样性,前端的灵活性,让我们不得不思考更通用的脚手架。而不是伴随着前端技术的发展，不断的把时间花在配置上。于是chef-cli诞生了。 18年年初，把过往一年的东西整理和总结下，重新增强了原有的脚手架project-next-cli, 不单单满足我们团队的需求，也可以满足其他人的需求。</p>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3>
+        <p>Vue 主要思想之一就是组件式开发。因此，在实际的项目开发中，肯定会以组件的开发模式进行。形如页面和页面之间需要通信一样，Vue 组件和组件之间肯定也需要互通有无、共享状态。接下来，我们就悉数给大家展示所有 Vue 组件之间的通信方式。</p>
+<h2 id="1、props-和-emit"><a href="#1、props-和-emit" class="headerlink" title="1、props 和 $emit"></a>1、props 和 $emit</h2><p>用过 Vue 技术栈开发项目过的开发者对这样一个组合肯定不会陌生，这种组件通信的方式是我们运用的非常多的一种。props 以单向数据流的形式可以很好的完成父子组件的通信。<br>所谓单向数据流：就是数据只能通过 props 由父组件流向子组件，而子组件并不能通过修改 props 传过来的数据修改父组件的相应状态。至于为什么这样做，Vue 官网做出了解释：<br>所有的 prop 都使得其父子 prop 之间形成了一个单向下行绑定：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。额外的，每次父级组件发生更新时，子组件中所有的 prop 都将会刷新为最新的值。这意味着你不应该在一个子组件内部改变 prop。如果你这样做了，Vue 会在浏览器的控制台中发出警告。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;parent&apos;, &#123;</span><br><span class="line">  template:`</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;this is parent component!&lt;/p&gt;</span><br><span class="line">      &lt;child :message=&quot;message&quot; v-on:getChildData=&quot;getChildData&quot;&gt;&lt;/child&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &apos;hello&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    // 执行子组件触发的事件</span><br><span class="line">    getChildData(val) &#123;</span><br><span class="line">      console.log(val);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">Vue.component(&apos;child&apos;, &#123;</span><br><span class="line">  template:`</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input type=&quot;text&quot; v-model=&quot;myMessage&quot; @input=&quot;passData(myMessage)&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `,</span><br><span class="line">  /**</span><br><span class="line">   * 得到父组件传递过来的数据</span><br><span class="line">   * 这里的定义最好是写成数据校验的形式，免得得到的数据是我们意料之外的</span><br><span class="line">   *</span><br><span class="line">   * props: &#123;</span><br><span class="line">   *   message: &#123;</span><br><span class="line">   *     type: String,</span><br><span class="line">   *     default: &apos;&apos;</span><br><span class="line">   *   &#125;</span><br><span class="line">   * &#125;</span><br><span class="line">   *</span><br><span class="line">  */</span><br><span class="line">  props:[&apos;message&apos;], </span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      // 这里是必要的，因为你不能直接修改 props 的值</span><br><span class="line">      myMessage: this.message</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    passData(val) &#123;</span><br><span class="line">      // 数据状态变化时触发父组件中的事件</span><br><span class="line">      this.$emit(&apos;getChildData&apos;, val);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">    </span><br><span class="line">var app=new Vue(&#123;</span><br><span class="line">  el: &apos;#app&apos;,</span><br><span class="line">  template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;parent /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -357,6 +359,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/02/javascript深入之new关键字的模拟实现/" rel="prev" title="javascript深入之new关键字的模拟实现">
+                javascript深入之new关键字的模拟实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -419,7 +437,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/zms.png" alt="李雨锁">
+              <img class="site-author-image" itemprop="image" src="/images/liyusuo.png" alt="李雨锁">
             
               <p class="site-author-name" itemprop="name">李雨锁</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -432,7 +450,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -494,7 +512,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始"><span class="nav-number">1.</span> <span class="nav-text">开始</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、props-和-emit"><span class="nav-number">1.</span> <span class="nav-text">1、props 和 $emit</span></a></li></ol></div>
             
 
           </div>
